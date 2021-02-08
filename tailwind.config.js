@@ -11,12 +11,12 @@ module.exports = {
     darkSelector: '.dark-mode',
     extend: {
       fontFamily: {
-        sans: ['Karla', ...defaultTheme.fontFamily.sans],
+        sans: ["Helvetica Neue", ...defaultTheme.fontFamily.sans],
         mono: [...defaultTheme.fontFamily.mono]
       },
       colors: {
         primary: {
-          100: '#ECEFF5',
+          100: '#FFFFFF',
           200: '#CBD2E1',
           300: '#ABB6CD',
           400: '#8C9AB7',
