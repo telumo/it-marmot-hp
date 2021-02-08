@@ -5,7 +5,7 @@
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
           <!-- Mobile menu button-->
           <button
-            @click="open = !open"
+            @click="isOpen"
             class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
             aria-expanded="false"
           >
@@ -63,11 +63,50 @@
         </div>
       </div>
     </div>
+    <div :class="menuClass">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+        <nuxt-link
+          class="btn block bg-gray-300 hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
+          to="/"
+          >Home</nuxt-link
+        >
+        <nuxt-link
+          class="btn block text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+          to="/blog"
+          >Blog</nuxt-link
+        >
+
+        <nuxt-link
+          class="btn block text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+          to="/projects"
+          >Projects</nuxt-link
+        >
+      </div>
+    </div>
   </nav>
 </template>
 
 <script>
 export default {
+  data: function () {
+    return {
+      open: false,
+    }
+  },
+
+  methods: {
+    isOpen: function () {
+      this.open = !this.open
+    },
+  },
+
+  computed: {
+    menuClass: function () {
+      return this.open ? 'sm:hidden' : 'hidden sm:hidden'
+    },
+  },
+
   name: 'Header',
 }
 </script>
