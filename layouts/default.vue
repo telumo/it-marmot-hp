@@ -2,9 +2,7 @@
   <div class="">
     <Header />
     <ColorModePicker />
-    <div class="container">
-      <nuxt />
-    </div>
+    <nuxt />
   </div>
 </template>
 
